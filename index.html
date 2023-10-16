@@ -221,6 +221,24 @@
 					<section>
 						<img src="img/miniconda_start_menu.png" alt="">
 					</section>
+
+					<section>
+						<pre><code class="hljs python" data-trim data-noescape data-line-numbers="1,7|2-6,8-13">
+							(base) C:\Users\AmadeusStevenson>pip install nhs-number
+							Collecting nhs-number
+							  Using cached nhs_number-1.3.4-py3-none-any.whl (9.3 kB)
+							Installing collected packages: nhs-number
+							Successfully installed nhs-number-1.3.4
+
+							(base) C:\Users\AmadeusStevenson>python
+							Python 3.11.4 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 13:47:18) [MSC v.1916 64 bit (AMD64)] on win32
+							Type "help", "copyright", "credits" or "license" for more information.
+							>>> import nhs_number
+							>>> nhs_number.generate(quantity=5)
+							['0360401228', '7708487889', '6158587664', '6327117295', '9733188115']
+							>>>							
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
@@ -237,6 +255,7 @@
 							<li class="fragment">Visual Studio Code</li>
 							<li class="fragment">README.md</li>
 							<li class="fragment">requirements.txt</li>
+							<li class="fragment"><strike>WSL</strike></li>
 						</ul>
 					</section>
 					<section>
@@ -254,7 +273,7 @@
 					<ol>
 						<li>Know what version of python you're running</li>
 						<li class="fragment">Know what versions of packages you need/are running</li>
-						<li class="fragment">Start with your "Getting Started" section and add into it as you go</li>
+						<li class="fragment">Start with your "Getting Started" documentation and add into it as you go</li>
 						<li class="fragment">Operate without admin privileges</li>
 						<li class="fragment">Plan for setting up on a new machine/environment</li>
 					</ol>
