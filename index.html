@@ -20,6 +20,23 @@
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+		.reveal pre code {
+ 		   overflow-x: hidden !important;
+		}
+		</style>
+		<script>
+		    var urlParams = new URLSearchParams(window.location.search);
+			var slides = document.querySelectorAll('[data-background-image]');
+
+			if (!urlParams.has('print-pdf')) {
+				slides.forEach(function(slide) {
+					if (slide.hasAttribute('data-background-image')) {
+						slide.removeAttribute('data-background-image');
+					}
+				});
+			}
+		</script>
 	</head>
 
 	<body>
@@ -28,31 +45,25 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<!-- <section>
-					<a href="https://revealjs.com">
-						<img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-					</a>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
-					</p>
-				</section> -->
-
 				<section>
-					<p>How I learned to stop worrying and embrace pip, conda, virtualenv, venv and Visual Studio Code</p>
-					<h2>
-						(How to install Python)
-					</h2>
+					<section>
+						<p>How I learned to stop worrying and embrace pip, conda, virtualenv, venv and Visual Studio Code</p>
+						<h2>
+							(How to install Python)
+						</h2>
+					</section>
+					<section>
+						<img src="img/gen-ai.png" alt="">
+					</section>
 				</section>
-
-				<section data-background-iframe="https://www.outcomesbasedhealthcare.com/our-team/" data-background-interactive>
+				<section data-background-image="img/obh_team.png" data-background-iframe="https://www.outcomesbasedhealthcare.com/our-team/" data-background-interactive>					
 					<div style="position: absolute; width: 50%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
 						<h2>A brief history</h2>
 						<p><ul>
 							<li>Technical Lead <em>at</em> Outcomes Based Healthcare</li>
 							<li>Data/Technology Lead <em>at</em> NHS AI Lab (NHSX)</li>
 							<li>CTO/CPO <em>at</em> Decoded</li>
-							<li>PhD in Biological Physics <em>from</em> University of Oxford</li>
+							<li>PhD in "nanomedicine" (Biological Physics)</li>
 						</ul></p>
 					</div>
 				</section>
@@ -103,7 +114,7 @@
 							C:\Users\AmadeusStevenson>
 						</code></pre>
 					</section>
-					<section data-background-iframe="https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb" data-background-interactive>
+					<section data-background-image="img/jupyter.png" data-background-iframe="https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb" data-background-interactive>
 					</section>
 				</section>
 			
@@ -121,7 +132,8 @@
 						<h2>Python Packages</h2>
 						<pre><code class="hljs python" data-trim data-noescape data-line-numbers="5-9">
 							C:\Users\AmadeusStevenson>python
-							Python 3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32
+							Python 3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit 
+							(AMD64)] :: Anaconda, Inc. on win32
 							
 							Type "help", "copyright", "credits" or "license" for more information.
 							>>> import nhs-number
@@ -187,6 +199,19 @@
 						<pre class="fragment">
 							<code class="hljs console" data-trim data-noescape>
 							pip install --index-url http://internal.repo/simple/ nhs-number -vvv
+							</code>
+						</pre>
+					</section>
+					<section>
+						<pre>
+							<code class="hljs python" data-trim data-noescape data-line-numbers="5|6-7">
+								C:\Users\AmadeusStevenson>python
+								Python 3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit 
+								(AMD64)] :: Anaconda, Inc. on win32
+								Type "help", "copyright", "credits" or "license" for more information.
+								>>> import nhs_number
+								>>> nhs_number.generate(quantity=5)
+								['9537591522', '6165489400', '2499165413', '1474925588', '8268731001']
 							</code>
 						</pre>
 					</section>		
@@ -267,6 +292,11 @@
 						</ul>
 					</section>
 				</section>
+				
+				<section>
+					<h2>Takeaways</h2>
+					<img class="fragment" src="img/sean_bean.jpg" alt="">
+				</section>
 
 				<section>
 					<h2>Takeaways</h2>
@@ -278,6 +308,7 @@
 						<li class="fragment">Plan for setting up on a new machine/environment</li>
 					</ol>
 				</section>
+
 			</div>
 
 		</div>
@@ -289,6 +320,20 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
+
+			// Workaround for iframes and print mode
+			// By default I add a static background image, which is removed if print mode
+			// not detected
+			var urlParams = new URLSearchParams(window.location.search);
+			var slides = document.querySelectorAll('[data-background-image]');
+
+			if (!urlParams.has('print-pdf')) {
+				slides.forEach(function(slide) {
+					if (slide.hasAttribute('data-background-image')) {
+						slide.removeAttribute('data-background-image');
+					}
+				});
+			}
 
 			// Also available as an ES module, see:
 			// https://revealjs.com/initialization/
